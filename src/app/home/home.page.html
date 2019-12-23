@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background-color: #92928717 !important;">
+  <div class="top-div">
+    <div style="text-align: center;padding-top:20px;color: white;">{{username}}<br>354</div>
+    <ion-row style="text-align: center;">
+      <ion-col align-self-start>
+        <ion-card class="box-1" style="top: 30px;background:white;padding:10px;">
+          <img class="box1-img" src="./assets/images/male.png">
+          <div class="box1-count">200</div>
+        </ion-card>
+      </ion-col>
+      <ion-col align-self-end>
+        <ion-card class="box-2" style="top: 30px;background:white;padding:10px;">
+          <img class="box2-img" src="./assets/images/female.png" style="width: 30%;margin:auto;">
+          <div class="box2-count">154</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div style="margin-top: 50px;">
+    <ion-card (click)="expandItem(item)" *ngFor="let item of items">
+      <ion-card-header>
+        <ion-card-title>Bhaskar-Sujatha</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <app-expandable expandHeight="100px" [expanded]="item.expanded">
+          <ul *ngFor="let name of item.childrens">
+            <li>{{name.name}}</li>
+          </ul>
+        </app-expandable>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="arrow-dropleft"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="arrow-dropright"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

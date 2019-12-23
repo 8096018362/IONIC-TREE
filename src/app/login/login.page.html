@@ -1,0 +1,45 @@
+<!-- <ion-content> -->
+  <ion-card style="margin-top: 40px;">
+    <img src="./assets/images/logo.png" style="/* margin: 0% 25%; */height: 220px;width: 67%;margin-left: 62px;">
+    <div style="padding: 10px;">
+      <form class="form" id="formLayer" [formGroup]="loginForm" (ngSubmit)="doLogin()">
+        <ion-item class="input-item">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input formControlName="username" [(ngModel)]="userObj.username"></ion-input>
+        </ion-item>
+        <br>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.username">
+            <div class="error-message"
+              *ngIf="loginForm.get('username').hasError(validation.type) && (loginForm.get('username').dirty || loginForm.get('username').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password" [(ngModel)]="userObj.password"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div class="error-message"
+              *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <div style="margin-top: 10%;">
+          <ion-button expand="full" type="submit" [disabled]="!loginForm.valid">SUBMIT</ion-button>
+        </div>
+        <div style="text-align: center;">
+          <p style="padding-top:10px"> Forgot Password ?</p>
+          <p style="padding-top:10px;"> New User ?</p>
+        </div>
+        <div>
+        </div>
+      </form>
+
+    </div>
+
+  </ion-card>
+<!-- </ion-content> -->
